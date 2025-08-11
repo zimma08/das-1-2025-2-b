@@ -49,5 +49,66 @@ Princípio da Segregação de Interfaces- Liskov Substitution Principle
 Exemplo: interface para o som e visualização do mouse em diferentes interfaces.
 Interfaces tem responsabilidades únicas, ou seja, devem se separar.
 
+Código janelinha: 
+package br.univille;
 
-Princípio de Inversão de Dependências
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Janelinha extends JFrame {
+
+    private JButton botaozinho;
+    private Controlador controlador;
+    public Janelinha() {
+        setTitle("Janelinha");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(500,500);
+        controlador = new Controlador();
+
+        botaozinho = new JButton(" Me Clica ");
+        botaozinho.addActionListener(controlador);
+        botaozinho.addMouseMotionListener(controlador);
+        add(botaozinho);
+        setVisible(true);
+    }
+    public static void main(String[] args) {
+        new Janelinha();
+    }
+    
+}
+
+
+# Princípio de Inversão de Dependências
+- O princípio recomenda que classes dependam de abstrações (interfaces) em vez de implementações concretas (classes), pois abstrações são mais estáveis. A ideia é inverter as dependências, fazendo com que os clientes dependam de interfaces, e não de implementações.
+
+No springboot usamos o @Autowired em dotnet não temos, então tem que usar o construtor
+
+Exemplo: num código que temos a classe "cliente", o mesmo pode trabalhar com objetos concretos das classes C1 e C2. Portanto, ele não precisa conhecer a classe concreta que está por trás.
+
+# Prefira Composição Herança 
+É a forma mais segura na construção de um software
+
+- Herança de classes: envolve reúso de código.
+- Herança de interfaces: não envolve reúso do código
+
+  Quando de fato usaremos a herança( seta aberta com a linha cheia)
+  Quando os filhos de uma superclasse não tem interação entre eles, ou seja, nunca um vai substituir o outro
+   Exemplo: em cima temos "Animal, gato na esquerda e dog na direita"
+
+  # Princípio de Demeter
+  Defende a implementação de um método deve invocar apenas os seguintes outros métodos.
+  - de sua própria classe (caso 1)
+  - de objetos passados como parâmetros (caso 2)
+  - de objetos criados pelo próprio método (caso 3)
+  - de atributos da classe do método (caso 4)
+
+# Princípio Aberto/Fechado
+Uma classe deve estar fechada para modificações e aberta para extensões.
+
+
+
+
+
+
+
+
