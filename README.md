@@ -105,6 +105,20 @@ Exemplo: num código que temos a classe "cliente", o mesmo pode trabalhar com ob
 # Princípio Aberto/Fechado
 Uma classe deve estar fechada para modificações e aberta para extensões.
 
+# Aula 28/08
+
+- Estruturas de Arquitetura
+
+- Característica da Arquitetura
+De maneira resumida, são os requisitos não funcionais que o sistema precisa terse não tiver eles, talvez não tenha uma funcionalidade real.
+Abrir mão de itens de textabilidade, agilidades para ter mais segurança é completamente viável
+
+- Decisões 
+Esse é o momento que tomamos a decisão de qual modelo de arquitetura e tecnologia iremos usar no projeto.
+
+- Principio de desing: 
+ maior objetivo é evitar acoplamentos
+ 
 
 
 
