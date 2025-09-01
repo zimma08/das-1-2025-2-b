@@ -118,7 +118,57 @@ Esse é o momento que tomamos a decisão de qual modelo de arquitetura e tecnolo
 
 - Principio de desing: 
  maior objetivo é evitar acoplamentos
+
+ # Aula 01/09
+
+ #Expectativas de um arquiteto
+
+ - Tomar decisões de arquitetura 
+ - Analisar continuamente com arquitetura
+ - Manter-se atualizado com as últimas tendências
+ - Assegurar a conformidade com as decisões
+ - Exposição e experiência diversificadas
+ - Ter conhecimento sobre o domínio do negócio
+ - Ter habilidades interpessoais
+ - Entender e lidar bem com questões políticas
+  
+O primeiro segredo para a eficiência e o sucesso na função de arquiteto de software depende de compreender e praticar cada uma dessas expectativas. 
+
+#Tomar Decisões de Arquitetura 
+
+Um arquiteto de software deve orientar, e não impor, as escolhas tecnológicas das equipes. Em vez de decidir por um framework específico (como React.js), ele deve indicar direções arquiteturais (como usar um framework reativo), permitindo que a equipe escolha a melhor opção. A linha entre decisão técnica e arquitetural pode ser sutil. Às vezes, é necessário especificar uma tecnologia para manter atributos como escalabilidade ou desempenho — e, nesse contexto, isso ainda é uma decisão arquitetural válida. O equilíbrio entre orientar e decidir é fundamental, e o Capítulo 19 trata exatamente dessas decisões de arquitetura.
+
+#Analisar Continuamente a Arquitetura
+
+Um arquiteto deve monitorar continuamente a arquitetura e o ambiente tecnológico para garantir sua viabilidade diante das mudanças no negócio e tecnologia. Ignorar essa prática causa decadência estrutural e reduz a agilidade no desenvolvimento, testes e lançamentos. Assim, o arquiteto mantém a arquitetura robusta e alinhada às necessidades atuais.
+
+#Manter-se atualizado com as Últimas Tendências 
+
+Um arquiteto deve ficar atualizado com as últimas tendências da tecnologia e do setor. As decisões que um arquiteto toma tendem a ser de longo prazo e difíceis de mudar. Entender e seguir as principais tendências contribui para que ele se prepare para o futuro e tome a decisão certa
+
+#Assegurar a Conformidade com as Decisões
+
+Um arquiteto deve assegurar a conformidade com as decisões de arquitetura e os princípios de design. Isso significa que a camada de apresentação deverá passar por todas as camadas da arquitetura para fazer até o mais simples chamado do banco de dados.
+
+#Exposição e Experiência Diversificadas
+
+Um dos melhores modos de dominar essa expectativa é o arquiteto aumentar sua zona de conforto. Focar apenas uma tecnologia ou plataforma é um porto seguro. Um arquiteto de software eficiente deve ser agressivo ao buscar oportunidades para ter experiência em várias linguagens, plataformas e tecnologias. Uma boa maneira de dominar a expectativa é se concentrar na amplitude técnica, não na profundidade técnica.
+
+#Ter Habilidades Interpessoais
  
+- Saber se comunicar com o time, ou seja, dar feedbacks para uma melhoria da equipe e saber também receber feedbacks tanto positivos quanto negativos, mesmo que online.
+
+#Operação DevOps
+
+A integração entre arquitetura e operações ganhou força com o DevOps, que rompeu a visão tradicional de operações separadas do desenvolvimento. Arquiteturas antigas eram complexas, pois precisavam compensar limitações das operações terceirizadas. Com os microsserviços, arquitetos e operações colaboram para simplificar o design, delegando responsabilidades operacionais a quem é especializado nisso, reduzindo a complexidade.
+
+
+
+
+
+
+
+
 
 
 
