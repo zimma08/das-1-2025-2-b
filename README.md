@@ -162,6 +162,43 @@ Um dos melhores modos de dominar essa expectativa é o arquiteto aumentar sua zo
 
 A integração entre arquitetura e operações ganhou força com o DevOps, que rompeu a visão tradicional de operações separadas do desenvolvimento. Arquiteturas antigas eram complexas, pois precisavam compensar limitações das operações terceirizadas. Com os microsserviços, arquitetos e operações colaboram para simplificar o design, delegando responsabilidades operacionais a quem é especializado nisso, reduzindo a complexidade.
 
+# Aula 04/09 
+
+Diferença entre Arquitetura e Design
+
+Arquitetura:
+Foca em aspectos de alto nível do sistema. O arquiteto analisa os requisitos comerciais, define os atributos da arquitetura (como desempenho, segurança, escalabilidade), escolhe padrões e estilos arquiteturais e cria os componentes principais (blocos de construção do sistema). A arquitetura serve como um guia global para o desenvolvimento do sistema.
+
+Design:
+Está mais voltado para detalhes específicos dentro dos componentes definidos pela arquitetura. Os desenvolvedores criam diagramas de classes, interfaces de usuário, e implementam e testam o código-fonte. O design lida com a solução detalhada dos problemas técnicos dentro dos limites da arquitetura.
+
+Responsabilidades
+
+Arquiteto:
+Define a estrutura geral, padrões, estratégias e componentes principais. Atua na conexão entre os objetivos de negócio e as soluções técnicas.
+
+Desenvolvedor:
+Implementa a solução detalhada, cria o código, telas, testes, baseando-se na arquitetura definida.
+
+Em resumo: 
+
+Arquitetura define a estrutura geral do sistema, escolhendo padrões e componentes para atender aos objetivos do negócio. Design cuida dos detalhes dentro dessa estrutura, como a implementação do código e interfaces. Para funcionar bem, arquitetos e desenvolvedores precisam trabalhar juntos, com comunicação constante, evitando que a arquitetura fique isolada do desenvolvimento.
+
+Observações:
+
+A arquitetura e o design devem trabalhar juntos de forma colaborativa e contínua. A arquitetura não deve ser isolada da equipe de desenvolvimento, uma comunicação bidirecional forte entre arquitetos e desenvolvedores é essencial para que o sistema funcione conforme planejado.
+
+
+Como é a formação do conhecimento de um arquiteto de modelo T?
+
+A formação do conhecimento de um arquiteto de modelo T envolve o desenvolvimento de duas áreas principais: uma base profunda e especializada em arquitetura (o traço vertical do “T”) e um conhecimento amplo e integrado em outras disciplinas relacionadas (o traço horizontal do “T”).
+
+O traço vertical representa a expertise técnica e aprofundada em áreas específicas da arquitetura, como padrões arquiteturais, tecnologias, segurança, desempenho e modelagem de sistemas. Já o traço horizontal corresponde ao entendimento geral sobre outras áreas que impactam o sistema, como negócios, desenvolvimento, infraestrutura, experiência do usuário e operações.
+
+Essa combinação permite que o arquiteto tenha uma visão abrangente e consiga se comunicar e colaborar efetivamente com diferentes equipes, além de aplicar seu conhecimento especializado para criar soluções arquiteturais alinhadas aos objetivos técnicos e comerciais. Em resumo, o arquiteto de modelo T é aquele que domina profundamente sua área, mas também tem um bom entendimento transversal para integrar conhecimentos e trabalhar de forma colaborativa.
+
+Resumidamente, a formação do conhecimento de um arquiteto de modelo T combina uma profunda especialização técnica em arquitetura de sistemas com um amplo entendimento de outras áreas relacionadas, como negócios, desenvolvimento, infraestrutura e experiência do usuário. Essa abordagem permite que o arquiteto tenha expertise detalhada em sua área, enquanto mantém uma visão integrada e transversal, facilitando a comunicação e colaboração eficaz entre diferentes equipes para criar soluções alinhadas tanto aos objetivos técnicos quanto comerciais.
+
 
 
 
