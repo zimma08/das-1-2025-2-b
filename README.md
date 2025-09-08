@@ -199,6 +199,26 @@ Essa combinação permite que o arquiteto tenha uma visão abrangente e consiga 
 
 Resumidamente, a formação do conhecimento de um arquiteto de modelo T combina uma profunda especialização técnica em arquitetura de sistemas com um amplo entendimento de outras áreas relacionadas, como negócios, desenvolvimento, infraestrutura e experiência do usuário. Essa abordagem permite que o arquiteto tenha expertise detalhada em sua área, enquanto mantém uma visão integrada e transversal, facilitando a comunicação e colaboração eficaz entre diferentes equipes para criar soluções alinhadas tanto aos objetivos técnicos quanto comerciais.
 
+# Aula 08/09
+
+Arquitetura é feita de trade-offs — não existe resposta certa, só a melhor decisão para o contexto. Por isso, "depende" é sempre a resposta mais honesta.
+
+No exemplo de um sistema de leilão, o serviço que envia lances pode se comunicar com os demais por tópicos (publish/subscribe) ou por filas (ponto a ponto).
+
+A abordagem por tópico é mais extensível e desacoplada: basta publicar uma vez e qualquer novo serviço pode assinar, sem modificar o emissor. Porém, ela tem desvantagens como menor segurança, contratos homogêneos entre serviços e dificuldade de monitoramento individual. 1 to any.
+
+Já a abordagem por fila é mais segura e flexível em termos de contratos — cada consumidor tem sua fila e pode escalar de forma independente. Mas exige mais acoplamento, pois o emissor precisa conhecer cada destino.
+
+No fim, não existe uma escolha certa. A decisão correta depende das necessidades do sistema, do time, da tecnologia e do momento do projeto.
+
+Vantagem da fila padrão mantém uma ordem e contém um armazenamento, diferentemente do tópico (alguns guardam) mas na origem quem guarda é a fila, justamente por ela guardar a sequencia das coisas que chegaram. Na fila é de 1 para 1.
+
+Basicamente a fila funciona como uma “linha de atendimento”: cada mensagem vai para um único consumidor, tipo quem chega primeiro pega a vez. Isso ajuda a distribuir o trabalho, porque várias pessoas (consumidores) vão pegando mensagens diferentes para processar, sem ninguém duplicar o esforço.
+
+Já o tópico é como um megafone, onde você fala uma coisa e todo mundo que estiver ouvindo recebe ao mesmo tempo. Ou seja, uma mensagem enviada no tópico é entregue para todos os serviços que estão “assinando” aquele assunto. É ótimo quando você quer que várias partes do sistema saibam de um evento ao mesmo tempo.
+
+ Resumindo: fila é mensagem pra um consumidor só, tópico é mensagem pra todo mundo que está “escutando”.
+
 
 
 
