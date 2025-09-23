@@ -7,6 +7,15 @@ A complexidade de uma funcionalidade ou sistema deve estar concentrada em sua im
 
 # Dica: estudar POO, principalmente na linguagem Java, pois está envolvido em todas as linguagens.
 
+Princípios de Projeto de Código
+São diretrizes que visam criar software de alta qualidade. Eles incluem o princípio da responsabilidade única (SRP), que defende que cada módulo deve ter apenas uma razão para mudar, e o princípio aberto/fechado (OCP), que afirma que entidades de software devem estar abertas para extensão, mas fechadas para modificação.
+
+Padronização de Código
+É um conjunto de regras e convenções adotadas por uma equipe para garantir consistência na escrita do código. Isso inclui convenções de nomenclatura, formatação, e documentação. O objetivo é melhorar a legibilidade, a manutenção e a colaboração no projeto.
+
+Ocultamento de Informação
+Também conhecido como encapsulamento, é o princípio de esconder os detalhes de implementação de um módulo de outros módulos. Apenas a interface pública é exposta. Isso reduz a dependência entre as partes do código, facilitando alterações e minimizando efeitos colaterais.
+
 ## Ocultamento de informação: 
 Esconde atrás de uma API e expondo através de uma interface. Quando voce cria uma classe, você está escondendo informação para poder criar uma interface em que o ser humano consiga interagir.
 
@@ -77,6 +86,7 @@ public class Janelinha extends JFrame {
     
 }
 
+# Aula 11/08
 
 # Princípio de Inversão de Dependências
 - O princípio recomenda que classes dependam de abstrações (interfaces) em vez de implementações concretas (classes), pois abstrações são mais estáveis. A ideia é inverter as dependências, fazendo com que os clientes dependam de interfaces, e não de implementações.
@@ -103,7 +113,35 @@ Exemplo: num código que temos a classe "cliente", o mesmo pode trabalhar com ob
   - de atributos da classe do método (caso 4)
 
 # Princípio Aberto/Fechado
-Uma classe deve estar fechada para modificações e aberta para extensões.
+Uma classe deve estar fechada para modificações e aberta para extensões. Isso significa que o comportamento de uma entidade pode ser estendido sem a necessidade de alterar seu código-fonte. Você pode adicionar novas funcionalidades ao sistema, mas sem mudar as classes existentes, o que minimiza o risco de introduzir bugs e de quebrar funcionalidades que já estão funcionando.
+
+# Aula 14/08
+
+#Princípio Liskov 
+
+-Regra: se uma classe B herda de uma classe A, a classe B deve poder ser usada no lugar da classe A sem quebrar nada no programa.
+-Exemplo: se tenho uma função que aceita um Quadrado, e Retângulo herda de Quadrado, essa função deve aceitar um Retângulo sem dar erro.
+-O objetivo é garantir que a herança seja usada de forma correta e que o código continue consistente.
+-Ajuda a evitar surpresas e bugs estranhos quando trabalhamos com subclasses.
+
+O Princípio de Substituição de Liskov garante que objetos de uma subclasse podem substituir objetos de sua classe-mãe sem causar erros, mantendo o comportamento do programa consistente. Ele assegura o uso correto da herança para criar um código mais robusto e previsível.
+
+# Aula 21/08 
+
+"Aula usada para implementação do Design Pattern: Observer"
+
+Vantagens: A principal vantagem é o baixo acoplamento. O Assunto e o Observador operam de forma independente, tornando o código mais flexível.
+Desvantagens: A implementação pode ter problemas de gerenciamento de memória se os Observadores não forem removidos corretamente. A ordem de notificação dos Observadores também não é garantida por padrão.
+Variante Comum: A notificação pode ser "push" (envia dados para o Observador) ou "pull" (o Observador busca os dados do Assunto).
+
+# Aula 25/08
+
+Implementação do Padrão Observer
+O padrão Observer é implementado com dois papéis principais: Assunto e Observador.
+
+Observador: Crie uma interface com um método de atualização (update()). Todas as classes que precisam ser notificadas devem implementar essa interface.
+Assunto: Crie uma classe que mantém uma lista de Observadores. Ela deve ter métodos para adicionar (attach), remover (detach) e notificar (notify) os observadores. Quando seu estado muda, o Assunto percorre a lista e chama o update() de cada Observador.
+
 
 # Aula 28/08
 
@@ -145,6 +183,10 @@ Um arquiteto deve monitorar continuamente a arquitetura e o ambiente tecnológic
 #Manter-se atualizado com as Últimas Tendências 
 
 Um arquiteto deve ficar atualizado com as últimas tendências da tecnologia e do setor. As decisões que um arquiteto toma tendem a ser de longo prazo e difíceis de mudar. Entender e seguir as principais tendências contribui para que ele se prepare para o futuro e tome a decisão certa
+
+#Domínio do Negócio 
+
+O Domínio do Negócio é a área de conhecimento e as regras do mundo real que um software precisa modelar. Compreendê-lo é essencial para criar soluções que realmente atendam às necessidades do cliente.
 
 #Assegurar a Conformidade com as Decisões
 
@@ -218,6 +260,20 @@ Basicamente a fila funciona como uma “linha de atendimento”: cada mensagem v
 Já o tópico é como um megafone, onde você fala uma coisa e todo mundo que estiver ouvindo recebe ao mesmo tempo. Ou seja, uma mensagem enviada no tópico é entregue para todos os serviços que estão “assinando” aquele assunto. É ótimo quando você quer que várias partes do sistema saibam de um evento ao mesmo tempo.
 
  Resumindo: fila é mensagem pra um consumidor só, tópico é mensagem pra todo mundo que está “escutando”.
+
+# Aula 15/08 e 18/09
+
+Implementação do Publisher e Subscriber(tópico)
+
+A implementação do padrão Pub/Sub é uma evolução do padrão Observer, introduzindo um intermediário que desacopla completamente o publicador do assinante.
+
+O Corretor (Broker/Event Bus): É o componente central. Ele mantém um registro dos tópicos e quais assinantes estão interessados em cada um. Pode ser implementado como uma classe que gerencia um Map onde a chave é o nome do tópico e o valor é a lista de assinantes.
+
+Assinante (Subscriber): Para receber mensagens, ele se registra no Corretor, especificando o tópico de interesse. Ele não tem conhecimento de quem publicará as mensagens.
+
+Publicador (Publisher): Para enviar mensagens, ele se conecta ao Corretor e publica uma mensagem para um tópico específico. Ele não sabe quem, ou quantos, assinantes irão receber a mensagem.
+
+Essa arquitetura elimina a dependência direta entre publicadores e assinantes, resultando em um sistema muito mais flexível, escalável e fácil de manter.
 
 
 
