@@ -5,7 +5,7 @@
 ## Complexidade:
 A complexidade de uma funcionalidade ou sistema deve estar concentrada em sua implementação, não em seu uso. Ou seja, é aceitável — e muitas vezes inevitável — que a construção de uma abstração seja desafiadora e técnica, mas seu uso por outros desenvolvedores precisa ser simples, intuitivo e previsível. Uma boa abstração esconde a complexidade interna e oferece uma interface clara para quem a utiliza.
 
-# Dica: estudar POO, principalmente na linguagem Java, pois está envolvido em todas as linguagens.
+#Dica: estudar POO, principalmente na linguagem Java, pois está envolvido em todas as linguagens.
 
 Princípios de Projeto de Código
 São diretrizes que visam criar software de alta qualidade. Eles incluem o princípio da responsabilidade única (SRP), que defende que cada módulo deve ter apenas uma razão para mudar, e o princípio aberto/fechado (OCP), que afirma que entidades de software devem estar abertas para extensão, mas fechadas para modificação.
