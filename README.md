@@ -275,6 +275,81 @@ Publicador (Publisher): Para enviar mensagens, ele se conecta ao Corretor e publ
 
 Essa arquitetura elimina a dependência direta entre publicadores e assinantes, resultando em um sistema muito mais flexível, escalável e fácil de manter.
 
+# Aula 06/10
+
+Introdução
+
+Quando uma empresa quer criar um software para resolver algum problema, ela define o que o sistema deve fazer — esses são os chamados requisitos funcionais.
+
+Mas além disso, existem outros requisitos que não definem exatamente o que o sistema faz, mas como ele deve funcionar para dar certo. Essas são as características da arquitetura.
+
+#Por que não chamar de “requisitos não funcionais”?
+
+Muita gente chama essas características de “não funcionais” e acaba parecendo que são menos importantes. Mas isso não é verdade. Na verdade, essas características são essenciais para o sucesso do sistema.
+
+Por isso, quem trabalha com arquitetura de software prefere chamar de “características da arquitetura” — para mostrar que elas são tão importantes quanto as funcionalidades.
+
+#O que faz uma característica ser da arquitetura?
+
+Para ser considerada uma característica da arquitetura, ela precisa:
+
+- Não estar diretamente ligada ao problema que o sistema resolve, ou seja, não fala do que o sistema faz, mas de como ele deve funcionar (exemplo: segurança, desempenho, escalabilidade).
+
+- Exigir uma decisão arquitetural — ou seja, a equipe precisa pensar na estrutura e no design para atender essa característica.
+
+- Ser realmente importante para o sucesso do sistema, porque colocar muita coisa acaba complicando o projeto.
+
+#Algumas características estão ali, mesmo que ninguém fale
+
+Tem características que nem aparecem nos requisitos, mas são super importantes — como segurança, disponibilidade e confiabilidade. Por isso, o arquiteto tem que estar sempre de olho nessas “características invisíveis”, mesmo que o cliente não peça explicitamente.
+
+#É sempre preciso fazer escolhas e abrir mão de alguma coisa
+
+Quando você melhora uma característica, outra pode ser prejudicada. Por exemplo, aumentar a segurança pode deixar o sistema mais lento. Ou melhorar a escalabilidade pode complicar a manutenção.
+
+Ser arquiteto é como pilotar um helicóptero: cada ajuste afeta várias coisas, e o segredo está em encontrar o equilíbrio.
+
+Por isso, não existe “a arquitetura perfeita”, mas sim a que melhor se encaixa na situação da empresa.
+
+E, claro, é muito mais inteligente ir ajustando a arquitetura ao longo do tempo do que tentar adivinhar tudo logo no começo.
+
+#Tipos de características da arquitetura
+
+Dividios em três grupos principais:
+
+1. Características operacionais: relacionadas ao comportamento do sistema em funcionamento, como desempenho, escalabilidade, disponibilidade e capacidade de recuperação.
+
+2. Características estruturais: relacionadas à organização interna do software, como modularidade, facilidade de manutenção, portabilidade e facilidade para atualizar.
+
+3. Características que cruzam tudo: que impactam o sistema todo, como segurança, privacidade, usabilidade, autenticação, acessibilidade e conformidade com leis.
+
+Exemplo:
+
+Uma empresa usava uma expressão para lembrar que o sistema precisava ser muito robusto: “E se a Itália desaparecesse?”. Eles queriam garantir que o sistema continuasse funcionando mesmo em situações críticas, como se “perdessem a Itália”.
+
+Isso mostra que, dependendo do negócio, a arquitetura precisa considerar características muito específicas.
+
+Outro ponto:
+
+Muita confusão acontece porque termos parecidos são usados de jeitos diferentes. Por isso, é importante que toda a equipe tenha um entendimento comum das palavras que estão usando, para evitar mal-entendidos.
+
+Dicas do ChatGPT:
+
+Foque nas poucas características que realmente importam. Tentar fazer tudo ao mesmo tempo só complica.
+
+Não tente construir um sistema que atenda a todos os problemas do mundo. Foque no que é importante para o momento.
+
+Vá melhorando a arquitetura ao longo do tempo, com ajustes e aprendizados.
+
+Registre as escolhas que você fez e por que abriu mão de outras opções.
+
+Memorizar segundo o ChatGPT:
+
+“Não funcional não quer dizer que seja menos importante.”
+
+“Uma boa arquitetura é aquela que sabe equilibrar os diferentes objetivos.”
+
+“Melhor fazer o que dá pra fazer bem agora e ir ajustando depois.”
 
 
 
