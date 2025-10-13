@@ -351,6 +351,109 @@ Memorizar segundo o ChatGPT:
 
 “Melhor fazer o que dá pra fazer bem agora e ir ajustando depois.”
 
+# Aula 09/10
+
+Padrão Circuit Breaker 
+O que é:
+Padrão para aumentar resiliência em sistemas distribuídos.
+
+Evita chamadas repetidas a serviços instáveis ou fora do ar.
+
+Age como um disjuntor elétrico: corta chamadas quando percebe falhas recorrentes e permite retomar quando o serviço se recupera.
+
+Estados do Circuit Breaker
+Closed (Fechado)
+Tudo normal. As chamadas passam.
+Monitora falhas → se passar do limite, vai para Open.
+
+Open (Aberto)
+
+Bloqueia chamadas imediatamente.
+Evita sobrecarga e falhas em cascata.
+Espera um tempo (time-out) e muda para Half-Open.
+Half-Open (Meio-Aberto
+Libera algumas chamadas de teste.
+Se der certo, volta pra Closed.
+Se falhar, volta pra Open e recomeça o time-out.
+
+Quando usar?
+
+Prevenir falhas em cascata.
+
+Proteger serviços de alta latência ou com falhas intermitentes.
+
+Manter estabilidade quando há picos de uso.
+
+Em ambientes distribuídos com serviços remotos.
+
+Quando não usar?
+
+Acesso a recursos locais (ex: memória).
+
+Sistema já tem tratamento de falhas adequado (ex: filas com DLQ).
+
+Retry simples já resolve o problema.
+
+Esperar o reset pode causar atraso inaceitável.
+
+Diferença: Retry x Circuit Breaker
+
+Retry: tenta de novo esperando que funcione (falha transitória).
+
+Circuit Breaker: não tenta se sabe que vai falhar (falha persistente).
+
+Pode usar os dois juntos, com cuidado para respeitar o estado do disjuntor.
+
+Considerações importantes
+
+Exceções: aplicação deve saber lidar com falha vinda do disjuntor.
+
+Tipos de falha: pode ajustar o comportamento com base no erro (ex: timeout vs. serviço indisponível).
+
+Monitoramento: usar logs e alertas (ex: Azure Monitor).
+
+Pings/Health Checks: testar se o serviço voltou (ver padrão Health Endpoint Monitoring).
+
+Override manual: permitir admin resetar ou forçar o disjuntor.
+
+Concorrência: deve funcionar bem com várias instâncias simultâneas.
+
+Time-out correto: cuidado com serviços externos que demoram demais.
+
+
+Resumão:
+Circuit Breaker é essencial em sistemas resilientes. Ele previne falhas em cascata, melhora a performance durante falhas e permite que os sistemas se recuperem de forma segura e eficiente.
+
+#Definição das características arquitetuais 
+
+Como falado na aula anterior, as características arquiteturais definem os atributos essenciais que orientam o design e o comportamento de um sistema, como desempenho, escalabilidade, segurança, confiabilidade e manutenibilidade. Elas estabelecem critérios que influenciam as decisões técnicas e a estrutura geral da aplicação, garantindo que ela atenda aos requisitos funcionais e não funcionais esperados, além de suportar mudanças e evoluções futuras.
+
+# Aula 13/10
+
+#Padrão CQRS
+O padrão CQRS separa as operações de leitura (queries) das operações de escrita (commands) em modelos distintos, permitindo que cada um seja otimizado independentemente para melhorar desempenho, escalabilidade e segurança. Enquanto a arquitetura tradicional usa um único modelo para CRUD, o CQRS reconhece que leitura e escrita têm requisitos diferentes, evitando problemas como contenção de bloqueios, desempenho degradado e complexidade excessiva.
+
+No CQRS, os comandos representam ações de negócios específicas e alteram dados, geralmente com validações e lógica de domínio complexa, podendo ser processados de forma síncrona ou assíncrona. As consultas, por outro lado, são simples e retornam dados otimizados para leitura, sem lógica de negócio.
+
+Existem duas abordagens principais para implementar CQRS: usando o mesmo banco de dados para leitura e escrita com lógica separada, ou usando bancos distintos, o que exige mecanismos para manter a sincronização entre eles, frequentemente via eventos.
+
+Os principais benefícios incluem escalabilidade independente para leitura e escrita, modelos otimizados para cada função, melhor segurança e separação clara de responsabilidades. No entanto, CQRS pode aumentar a complexidade do sistema, exigir tratamento especial para consistência eventual e desafios com mensagens assíncronas.
+
+CQRS é recomendado para sistemas com alta concorrência, interfaces baseadas em tarefas, lógica complexa de domínio, necessidade de escalabilidade e equipes de desenvolvimento separadas. Para domínios simples e operações CRUD básicas, pode ser um exagero.
+
+Combinar CQRS com Event Sourcing potencializa seus benefícios, armazenando o estado do sistema como eventos que alimentam as visões de leitura, facilitando auditoria, reprocessamento e escalabilidade.
+
+#Estilos e Padrões 
+
+Os estilos de arquitetura são formas conhecidas de organizar sistemas de software, com nomes que ajudam arquitetos a se entenderem rapidamente. Por exemplo, quando alguém fala em uma arquitetura em camadas, já entende a estrutura e os prós e contras envolvidos. Entre os padrões fundamentais, a ideia de separar o sistema em camadas é antiga e muito utilizada.
+
+Um problema comum na arquitetura é o chamado antipadrão "Grande Bola de Lama", que é quando o sistema está totalmente bagunçado, com código mal estruturado e difícil de manter, geralmente por falta de planejamento ou controle.
+
+A arquitetura cliente/servidor é um dos estilos mais tradicionais, separando o sistema em front-end (cliente) e back-end (servidor). Isso evoluiu do modelo desktop + banco de dados para a web, com navegador e servidor web, e depois para arquiteturas mais complexas com três camadas, onde se separa banco de dados, lógica de aplicação e interface do usuário, melhorando manutenção e escalabilidade.
+
+Arquiteturas podem ser monolíticas, com todo código junto, ou distribuídas, com partes separadas conectadas pela rede, como nos microsserviços. As arquiteturas distribuídas são mais poderosas, mas trazem desafios de complexidade.
+
+Ao projetar uma arquitetura, é importante entender que melhorar uma característica, como segurança, pode afetar negativamente outra, como desempenho. Por isso, a arquitetura é sempre um exercício de equilíbrio, e deve ser pensada para permitir mudanças e melhorias ao longo do tempo, evitando tentar acertar tudo de primeira.
 
 
 
@@ -364,3 +467,7 @@ Memorizar segundo o ChatGPT:
 
 
 
+
+
+
+/
