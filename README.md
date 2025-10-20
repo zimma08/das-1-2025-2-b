@@ -455,6 +455,43 @@ Arquiteturas podem ser monolíticas, com todo código junto, ou distribuídas, c
 
 Ao projetar uma arquitetura, é importante entender que melhorar uma característica, como segurança, pode afetar negativamente outra, como desempenho. Por isso, a arquitetura é sempre um exercício de equilíbrio, e deve ser pensada para permitir mudanças e melhorias ao longo do tempo, evitando tentar acertar tudo de primeira.
 
+# Aula 16/10
+
+O Retry Pattern no Azure permite que aplicações lidem com falhas transitórias ao se comunicar com serviços ou recursos em nuvem, repetindo automaticamente operações que falharam. Isso aumenta a estabilidade e resiliência da aplicação, já que falhas como perda momentânea de rede, indisponibilidade temporária ou timeouts geralmente se resolvem sozinhas.
+
+A ideia central é tentar novamente a operação após uma falha, usando estratégias como: cancelar, tentar imediatamente ou tentar após atraso, possivelmente com aumentos progressivos no tempo entre tentativas. O padrão deve respeitar idempotência, tipo de exceção e consistência de transações.
+
+Boas práticas incluem:
+
+Testar o código de retry para diferentes cenários de falha.
+
+Logar falhas, mas registrar erros reais apenas se todas as tentativas falharem.
+
+Ajustar o número de tentativas e atrasos conforme a criticidade da operação.
+
+Evitar retries desnecessários que sobrecarreguem o serviço.
+
+Usar frameworks como Polly (.NET) ou Resilience4j (Java) quando possível.
+
+O padrão é útil para falhas curtas e transitórias, mas não substitui soluções de escalabilidade nem lida bem com falhas longas, que podem ser tratadas com o Circuit Breaker Pattern. Ele contribui principalmente para a confiabilidade de workloads distribuídos na nuvem.
+
+# Aula 20/10
+
+A arquitetura em camadas (ou n-tier) divide o sistema em partes com funções específicas — como apresentação, negócio, persistência e banco de dados. É amplamente usada por ser simples, familiar e refletir a estrutura das equipes de desenvolvimento. Aplicações pequenas usam menos camadas; as maiores, mais.
+Cada camada da arquitetura em camadas tem uma função específica:
+
+Apresentação: cuida da interface com o usuário.
+
+Negócio: aplica regras e processa dados.
+
+Persistência: acessa e manipula o banco de dados.
+
+As camadas de isolamento deixam cada parte do sistema independente, sem interferir nas outras. Elas devem ser fechadas, comunicando-se só com a camada abaixo, o que evita bagunça e facilita manutenção. Dá pra trocar uma camada (tipo JSF por React) sem quebrar o resto. Já as camadas abertas permitem acessos diretos, mas perdem um pouco desse isolamento.
+
+A arquitetura em camadas é simples, barata e indicada como ponto de partida para sistemas pequenos ou iniciais. Mantém cada camada independente, mas deve-se evitar o antipadrão sinkhole, onde requisições apenas passam sem lógica de negócio. Para sistemas grandes, seu uso pode dificultar manutenção e agilidade, sendo melhor migrar para arquiteturas mais modulares.
+
+A arquitetura em camadas é simples, barata e adequada para sistemas pequenos ou como ponto de partida. Porém, em aplicações maiores, é difícil de testar e implementar, mudanças pequenas podem afetar várias partes, e a escalabilidade e o desempenho são limitados. Falhas em uma camada podem comprometer toda a aplicação, tornando-a menos confiável para sistemas grandes ou críticos.
+
 
 
 
