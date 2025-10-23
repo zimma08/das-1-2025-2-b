@@ -476,21 +476,41 @@ Usar frameworks como Polly (.NET) ou Resilience4j (Java) quando possível.
 O padrão é útil para falhas curtas e transitórias, mas não substitui soluções de escalabilidade nem lida bem com falhas longas, que podem ser tratadas com o Circuit Breaker Pattern. Ele contribui principalmente para a confiabilidade de workloads distribuídos na nuvem.
 
 # Aula 20/10
+ Introdução:
 
-A arquitetura em camadas (ou n-tier) divide o sistema em partes com funções específicas — como apresentação, negócio, persistência e banco de dados. É amplamente usada por ser simples, familiar e refletir a estrutura das equipes de desenvolvimento. Aplicações pequenas usam menos camadas; as maiores, mais.
-Cada camada da arquitetura em camadas tem uma função específica:
+A arquitetura em camadas (ou n-tier) é basicamente um jeito de organizar o sistema em partes diferentes, cada uma com sua função. É bem comum e usada há muito tempo porque é simples, fácil de entender e combina com a forma que as equipes de desenvolvimento costumam trabalhar.
 
-Apresentação: cuida da interface com o usuário.
+Em sistemas pequenos, dá pra usar só algumas camadas. Já em sistemas maiores, é normal ter mais camadas pra deixar tudo mais organizado.
 
-Negócio: aplica regras e processa dados.
+Função de cada camada:
 
-Persistência: acessa e manipula o banco de dados.
+Apresentação: é a parte que o usuário vê e interage (a interface).
 
-As camadas de isolamento deixam cada parte do sistema independente, sem interferir nas outras. Elas devem ser fechadas, comunicando-se só com a camada abaixo, o que evita bagunça e facilita manutenção. Dá pra trocar uma camada (tipo JSF por React) sem quebrar o resto. Já as camadas abertas permitem acessos diretos, mas perdem um pouco desse isolamento.
+Negócio: onde ficam as regras do sistema e o processamento dos dados.
 
-A arquitetura em camadas é simples, barata e indicada como ponto de partida para sistemas pequenos ou iniciais. Mantém cada camada independente, mas deve-se evitar o antipadrão sinkhole, onde requisições apenas passam sem lógica de negócio. Para sistemas grandes, seu uso pode dificultar manutenção e agilidade, sendo melhor migrar para arquiteturas mais modulares.
+Persistência: responsável por conversar com o banco de dados.
 
-A arquitetura em camadas é simples, barata e adequada para sistemas pequenos ou como ponto de partida. Porém, em aplicações maiores, é difícil de testar e implementar, mudanças pequenas podem afetar várias partes, e a escalabilidade e o desempenho são limitados. Falhas em uma camada podem comprometer toda a aplicação, tornando-a menos confiável para sistemas grandes ou críticos.
+Banco de dados: onde as informações são realmente guardadas.
+
+A ideia principal é deixar cada parte isolada, sem uma depender diretamente da outra. Assim, se for preciso mudar algo (tipo trocar JSF por React), o resto do sistema continua funcionando de boa.
+
+Tipos de camadas:
+
+Camadas fechadas: só falam com a camada de baixo — mais organizadas e fáceis de manter.
+
+Camadas abertas: permitem acesso direto entre partes, mas perdem um pouco da organização.
+# Aula 23/10
+
+Essa arquitetura é barata, simples e boa pra começar um projeto pequeno. Cada parte tem sua responsabilidade e isso ajuda a deixar o código mais limpo e fácil de entender.
+
+Importante tomar cuidado com um problema chamado "sinkhole", que acontece quando os dados passam por várias camadas sem fazer nada de útil (só pra cumprir tabela). Isso deixa o sistema mais pesado sem motivo.
+
+Quando o sistema cresce, a arquitetura em camadas pode começar a dar trabalho pra manter e testar. Pequenas mudanças podem acabar afetando várias partes do código. Além disso, ela não escala tão bem e pode ficar mais lenta em sistemas grandes.
+
+Se uma camada falhar, tudo pode parar junto, o que torna a aplicação menos confiável em projetos críticos.
+
+Por isso, em sistemas maiores, pode ser melhor usar algo mais moderno e modular, como microserviços ou arquitetura hexagonal, que dão mais liberdade e são mais fáceis de escalar.
+
 
 
 
