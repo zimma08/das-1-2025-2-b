@@ -511,6 +511,28 @@ Se uma camada falhar, tudo pode parar junto, o que torna a aplicação menos con
 
 Por isso, em sistemas maiores, pode ser melhor usar algo mais moderno e modular, como microserviços ou arquitetura hexagonal, que dão mais liberdade e são mais fáceis de escalar.
 
+# Aula 27/10 e 30/10
+- Código
+
+# Aula 03/11 e 06/11
+
+Arquitetura Microkernel (ou de Plug-ins)
+
+A arquitetura microkernel divide o sistema em um núcleo central (com funções essenciais) e plug-ins (que estendem ou personalizam o sistema). Essa separação traz flexibilidade, facilidade de manutenção, testabilidade e expansão, pois novos recursos podem ser adicionados sem alterar o núcleo.
+
+Os plug-ins são autônomos e independentes, comunicando-se com o núcleo de forma direta (ponto a ponto) ou, em sistemas mais complexos, por acesso remoto, o que aumenta o desacoplamento e a escalabilidade, mas também a complexidade e o risco de falhas.
+
+Podem ser carregados em tempo de compilação (menos flexíveis) ou em tempo de execução (mais dinâmicos, via OSGi, Jigsaw, Prism). São implementados como bibliotecas compartilhadas (JAR, DLL, etc.) e registrados em um catálogo de plug-ins, que guarda informações como nome, contrato e protocolo.
+
+A comunicação entre o núcleo e os plug-ins é definida por contratos (interfaces, XML, JSON), e adaptadores podem ajustar plug-ins de terceiros sem modificar o núcleo.
+
+Softwares como Eclipse, Jira, Jenkins, Chrome e Firefox usam essa arquitetura. Ela é especialmente útil em sistemas empresariais personalizados, como seguros e sistemas fiscais.
+
+Pontos fortes: modularidade, extensibilidade, manutenção simples, boa testabilidade e performance.
+Pontos fracos: escalabilidade limitada, menor tolerância a falhas e gargalo no núcleo central.
+
+Ideal para: sistemas com alta customização e evolução contínua.
+🚫 Menos indicada para: sistemas distribuídos que exigem alta escalabilidade e resiliência.
 
 
 
