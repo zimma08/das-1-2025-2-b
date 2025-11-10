@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.univille</groupId>
-	<artifactId>microkernel_interface</artifactId>
+	<artifactId>microkernel-interface</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>microkernel_interface</name>
+	<name>microkernel-interface</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
