@@ -532,7 +532,30 @@ Pontos fortes: modularidade, extensibilidade, manutenção simples, boa testabil
 Pontos fracos: escalabilidade limitada, menor tolerância a falhas e gargalo no núcleo central.
 
 Ideal para: sistemas com alta customização e evolução contínua.
-🚫 Menos indicada para: sistemas distribuídos que exigem alta escalabilidade e resiliência.
+Menos indicada para: sistemas distribuídos que exigem alta escalabilidade e resiliência.
+
+# Aula 10/11 e 13/11 
+
+Arquitetura de Microserviços
+
+A arquitetura de microserviços é um modelo de desenvolvimento de software que divide um sistema em pequenos serviços independentes, cada um responsável por uma parte específica da aplicação. Essa abordagem traz mais flexibilidade, escalabilidade e facilidade de manutenção.
+1. Isolamento dos Dados
+Cada microserviço possui seu próprio banco de dados, garantindo isolamento e autonomia. Isso evita que mudanças em um serviço afetem outros, mas também exige cuidado para manter a consistência dos dados entre os serviços.
+2. Camada da API
+Os microserviços se comunicam principalmente por meio de APIs. A camada de API serve como uma interface entre os serviços e o mundo externo, controlando o acesso e padronizando as trocas de informações. É comum o uso de API Gateway, que centraliza as requisições e direciona para o microserviço correto.
+3. Reutilização Operacional
+Os microserviços podem ser reutilizados em diferentes partes do sistema ou até em outros projetos. Isso ocorre porque cada serviço é independente e pode ser implantado ou escalado de forma separada, otimizando os recursos da operação.
+4. Comunicação
+A comunicação entre microserviços pode ser síncrona (como via HTTP/REST) ou assíncrona (usando filas e mensageria, como RabbitMQ ou Kafka). A escolha depende do tipo de interação e da necessidade de desempenho e tolerância a falhas.
+5. Transações e Sagas
+Como os microserviços têm bancos de dados separados, transações distribuídas são complexas. Para lidar com isso, usa-se o padrão Saga, que divide uma transação em várias etapas locais, com mecanismos de compensação caso algo dê errado, mantendo a consistência eventual do sistema.
+6. Classificações das Características da Arquitetura
+Entre as principais características da arquitetura de microserviços estão:
+Escalabilidade: serviços podem crescer independentemente.
+
+Resiliência: falhas em um serviço não derrubam todo o sistema.
+Desenvolvimento paralelo: equipes diferentes podem trabalhar em serviços distintos.
+Complexidade distribuída: exige monitoramento, orquestração e boas práticas de comunicação.
 
 
 
