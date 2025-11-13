@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.univille</groupId>
-	<artifactId>microkernel_kernel</artifactId>
+	<artifactId>microkernel-plugin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>microkernel_kernel</name>
+	<name>microkernel-plugin</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -43,14 +43,13 @@
 
 		<dependency>
 			<groupId>br.univille</groupId>
-			<artifactId>microkernel_interface</artifactId>
+			<artifactId>microkernel-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<dependency>
-			<groupId>br.univille</groupId>
-			<artifactId>microkernel_plugin</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+
+
+
+
 	</dependencies>
 
 	<build>
